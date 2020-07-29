@@ -41,10 +41,11 @@ input ClienteInput {
 	apellido: String!
 	telefono: String!
 	tipo: TipoCliente!
-	pedidos: [PedidoInput]!
-	emails: [EmailInput]!
+	pedidos: [PedidoInput]
+	emails: [EmailInput]
 }
 
 type Mutation {
 	crearCliente(input: ClienteInput): Cliente
+  actualizarCliente(input: ClienteInput): Cliente
 }
