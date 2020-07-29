@@ -9,10 +9,10 @@ mongoose.connect('mongodb://localhost/clientes', {
 const clientesSchema = new mongoose.Schema({
   nombre: String,
   apellido: String,
-  email: String,
+  emails: Array,
   tipo: String,
   pedidos: Array,
-  telefono: Number
+  telefono: String
 });
 
 const Clientes = mongoose.model('clientes', clientesSchema);
