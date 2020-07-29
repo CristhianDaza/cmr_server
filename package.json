@@ -1,0 +1,22 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "GrapQL Servidor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristhianDaza/cmr_server.git"
+  },
+  "keywords": [
+    "graphql"
+  ],
+  "author": "Cristhian Daza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CristhianDaza/cmr_server/issues"
+  },
+  "homepage": "https://github.com/CristhianDaza/cmr_server#readme"
+}
