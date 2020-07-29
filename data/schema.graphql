@@ -3,6 +3,9 @@ type Cliente {
 	nombre: String
 	apellido: String
 	telefono: String
+	cedula: String
+	ciudad: String
+	direccion: String
 	tipo: TipoCliente
 	pedidos: [Pedido]
 	emails: [Email]
@@ -42,6 +45,9 @@ input ClienteInput {
 	apellido: String!
 	telefono: String!
 	tipo: TipoCliente!
+	cedula: String
+	ciudad: String!
+	direccion: String!
 	pedidos: [PedidoInput]
 	emails: [EmailInput]
 }

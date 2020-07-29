@@ -20,6 +20,9 @@ export const resolvers = {
       const nuevoCliente = new Clientes({
         nombre: input.nombre,
         apellido: input.apellido,
+        cedula: input.cedula,
+        ciudad: input.ciudad,
+        direccion: input.direccion,
         emails: input.emails,
         tipo: input.tipo,
         pedidos: input.pedidos,
