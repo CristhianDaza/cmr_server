@@ -1,9 +1,9 @@
 import express from 'express';
-//graphql
+//graphql 
 import { graphqlHTTP } from 'express-graphql';
-import schema from './schema';
+import schema from './data/schema';
 //resolvers
-import resolvers from './resolvers';
+import resolvers from './data/resolvers';
 
 const root = resolvers
 
