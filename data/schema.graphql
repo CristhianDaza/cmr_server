@@ -20,6 +20,14 @@ type Email {
 	email: String
 }
 
+type Producto {
+	id: ID
+	referencia: String!
+  descripcion: String!
+  stock: Int!
+  precio: Int!
+}
+
 enum TipoCliente {
 	BASICO
 	PREMIUM
@@ -53,8 +61,17 @@ input ClienteInput {
 	emails: [EmailInput]
 }
 
+input ProductoInput {
+	id: ID
+	referencia: String!
+  descripcion: String!
+  stock: Int!
+  precio: Int!
+}
+
 type Mutation {
 	crearCliente(input: ClienteInput): Cliente
   actualizarCliente(input: ClienteInput): Cliente
   eliminarCliente(id: ID!): String
+	nuevoProducto(input: ProductoInput): Producto
 }

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Mongoose } from 'mongoose';
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/clientes', {
   useUnifiedTopology: true,
@@ -20,4 +20,14 @@ const clientesSchema = new mongoose.Schema({
 
 const Clientes = mongoose.model('clientes', clientesSchema);
 
-export { Clientes };
+// Schema productos
+const productosSchema = new mongoose.Schema({
+  referencia: String,
+  descripcion: String,
+  stock: Number,
+  precio: Number
+});
+
+const Productos = mongoose.model('productos', productosSchema);
+
+export { Clientes, Productos };
