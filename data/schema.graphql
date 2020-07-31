@@ -37,6 +37,8 @@ type Query {
   getClientes(limite: Int, offset: Int): [Cliente]
 	getCliente(id: ID): Cliente
 	totalClientes: String
+	obtenerProductos(limite: Int, offset: Int): [Producto]
+	obtenerProducto(id: ID): Producto
 }
 
 input PedidoInput {
@@ -74,4 +76,6 @@ type Mutation {
   actualizarCliente(input: ClienteInput): Cliente
   eliminarCliente(id: ID!): String
 	nuevoProducto(input: ProductoInput): Producto
+  actualizarProducto(input: ProductoInput): Producto
+  eliminarProducto(id: ID!): String
 }
