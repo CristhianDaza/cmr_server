@@ -105,4 +105,5 @@ type Mutation {
   actualizarProducto(input: ProductoInput): Producto
   eliminarProducto(id: ID!): String
 	nuevoPedido(input: PedidoInput): Pedido
+	actualizarEstado(input: PedidoInput): String
 }
