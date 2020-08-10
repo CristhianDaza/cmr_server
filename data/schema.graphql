@@ -7,13 +7,7 @@ type Cliente {
 	ciudad: String
 	direccion: String
 	tipo: TipoCliente
-	pedidos: [Pedido]
 	emails: [Email]
-}
-
-type Pedido {
-	producto: String
-	precio: Int
 }
 
 type Email {
@@ -28,9 +22,30 @@ type Producto {
   precio: Int!
 }
 
+type Pedido {
+	id: ID
+	pedido: [PedidoProductoInput]
+	total: Int
+	fecha: Strign
+	cliente: ID
+	estado: EstadoPedido
+}
+
+type PedidoProducto {
+	id: ID
+	cantidad: Int
+}
+
+
 enum TipoCliente {
 	BASICO
 	PREMIUM
+}
+
+enum EstadoPedido {
+	PENDIENTE
+	COMPLETADO
+	CANCELADO
 }
 
 type Query {
@@ -72,6 +87,20 @@ input ProductoInput {
   precio: Int!
 }
 
+input PedidoInput {
+	id: ID
+	pedido: [PedidoProductoInput]
+	total: Int
+	fecha: Strign
+	cliente: ID
+	estado: EstadoPedido
+}
+
+input PedidoProductoInput {
+	id: ID
+	cantidad: Int
+}
+
 type Mutation {
 	crearCliente(input: ClienteInput): Cliente
   actualizarCliente(input: ClienteInput): Cliente
@@ -79,4 +108,5 @@ type Mutation {
 	nuevoProducto(input: ProductoInput): Producto
   actualizarProducto(input: ProductoInput): Producto
   eliminarProducto(id: ID!): String
+	nuevoPedido(input: PedidoInput): Pedido
 }
