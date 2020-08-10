@@ -24,9 +24,9 @@ type Producto {
 
 type Pedido {
 	id: ID
-	pedido: [PedidoProductoInput]
+	pedido: [PedidoProducto]
 	total: Int
-	fecha: Strign
+	fecha: String
 	cliente: ID
 	estado: EstadoPedido
 }
@@ -55,11 +55,6 @@ type Query {
 	obtenerProductos(limite: Int, offset: Int): [Producto]
 	obtenerProducto(id: ID): Producto
 	totalProductos: String
-}
-
-input PedidoInput {
-	producto: String
-	precio: Int
 }
 
 input EmailInput {
@@ -91,7 +86,7 @@ input PedidoInput {
 	id: ID
 	pedido: [PedidoProductoInput]
 	total: Int
-	fecha: Strign
+	fecha: String
 	cliente: ID
 	estado: EstadoPedido
 }
