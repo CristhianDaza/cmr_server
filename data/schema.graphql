@@ -55,6 +55,7 @@ type Query {
 	obtenerProductos(limite: Int, offset: Int, stock: Boolean): [Producto]
 	obtenerProducto(id: ID): Producto
 	totalProductos: String
+	obtenerPedidos(cliente: String): [Pedido]
 }
 
 input EmailInput {
