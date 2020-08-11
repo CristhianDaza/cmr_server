@@ -132,16 +132,6 @@ export const resolvers = {
       });
       nuevoPedido.id = nuevoPedido._id;
       return new Promise((resolve, object) => {
-        // recorrer y actualizar la cantidad de productos
-        input.pedido.forEach(pedido => {
-          Productos.updateOne({ _id: pedido.id},
-            { "$inc":
-              { "stock": -pedido.cantidad }
-            }, function(error) {
-              if(error) return new Error(error)
-            }
-          )
-        });
         nuevoPedido.save((error) => {
           if(error) rejects(error)
           else resolve(nuevoPedido)
@@ -150,6 +140,24 @@ export const resolvers = {
     },
     actualizarEstado: (root, {input}) => {
       return new Promise((resolve, rejects) => {
+        const { estado } = input;
+        let instruccion;
+        if(estado === 'COMPLETADO') {
+          instruccion = '-';
+        } else if (estado === 'CANCELADO') {
+          instruccion = '+';
+        }
+
+        // recorrer y actualizar la cantidad de productos en base al estado del pedido
+        input.pedido.forEach(pedido => {
+          Productos.updateOne({ _id: pedido.id},
+            { "$inc":
+              { "stock": `${instruccion}${pedido.cantidad}` }
+            }, function(error) {
+              if(error) return new Error(error)
+            }
+          )
+        });
         Pedidos.findOneAndUpdate({_id: input.id}, input, {new: true}, (error) => {
           if(error) rejects(error)
           else resolve('Se actualizo Correctamente')
