@@ -45,6 +45,9 @@ type Token {
 	token: String!
 }
 
+type Usuario {
+	usuario: String
+}
 
 enum TipoCliente {
 	BASICO
@@ -66,6 +69,7 @@ type Query {
 	totalProductos: String
 	obtenerPedidos(cliente: ID): [Pedido]
 	topClientes: [ClienteTotal]
+	obtnerUsuario: Usuario
 }
 
 input EmailInput {
