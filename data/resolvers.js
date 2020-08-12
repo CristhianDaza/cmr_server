@@ -94,7 +94,7 @@ export const resolvers = {
         })
       })
     },
-    obtnerUsuario: (root, args, {usuarioActual}) => {
+    obtenerUsuario: (root, args, {usuarioActual}) => {
       if (!usuarioActual) {
         return null;
       }

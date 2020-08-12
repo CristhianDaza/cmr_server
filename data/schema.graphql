@@ -69,7 +69,7 @@ type Query {
 	totalProductos: String
 	obtenerPedidos(cliente: ID): [Pedido]
 	topClientes: [ClienteTotal]
-	obtnerUsuario: Usuario
+	obtenerUsuario: Usuario
 }
 
 input EmailInput {
