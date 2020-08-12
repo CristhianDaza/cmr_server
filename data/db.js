@@ -1,4 +1,5 @@
 import mongoose, { Mongoose } from 'mongoose';
+import bcrypt from 'bcrypt';
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/clientes', {
   useUnifiedTopology: true,
@@ -41,4 +42,27 @@ const pedidosSchema = new mongoose.Schema({
 
 const Pedidos = mongoose.model('pedidos', pedidosSchema)
 
-export { Clientes, Productos, Pedidos };
+// Schema Usuarios
+const usuariosSchema = new mongoose.Schema({
+  usuario: String,
+  password: String
+});
+// Hashear los pass antes de guardarlos
+usuariosSchema.pre('save', function(next) {
+  // si el password no esta modificado ejecutar
+  if (!this.isModified('password')) {
+    return next()
+  }
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) return next(err);
+    bcrypt.hash(this.password, salt, (err, hash) => {
+      if (err) return next(err);
+      this.password = hash;
+      next()
+    })
+  })
+})
+
+const Usuarios = mongoose.model('usuarios', usuariosSchema);
+
+export { Clientes, Productos, Pedidos, Usuarios };

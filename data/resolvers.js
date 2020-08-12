@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Clientes, Productos, Pedidos } from './db';
+import { Clientes, Productos, Pedidos, Usuarios } from './db';
 
 export const resolvers = {
   Query: {
@@ -195,6 +195,20 @@ export const resolvers = {
           else resolve('Se actualizo Correctamente')
         })
       })
+    },
+    crearUsuario: async (root, {usuario, password}) => {
+      const existeUsuario = await Usuarios.findOne({usuario});
+
+      if(existeUsuario) {
+        throw new Error('El usuario ya existe')
+      }
+
+      const nuevoUsusario =  await new Usuarios({
+        usuario,
+        password
+      }).save()
+      return 'Creado Correctamente'
+      
     }
   }
 }
