@@ -41,6 +41,10 @@ type PedidoProducto {
 	cantidad: Int
 }
 
+type Token {
+	token: String!
+}
+
 
 enum TipoCliente {
 	BASICO
@@ -113,4 +117,5 @@ type Mutation {
 	nuevoPedido(input: PedidoInput): Pedido
 	actualizarEstado(input: PedidoInput): String
 	crearUsuario(usuario: String!, password: String!): String
+	autenticarUsuario(usuario: String!, password: String!): Token
 }
