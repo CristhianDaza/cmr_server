@@ -1,7 +1,9 @@
 import mongoose, { Mongoose } from 'mongoose';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+dotenv.config({path: 'variables.env'});
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/clientes', {
+mongoose.connect(process.env.DB , {
   useUnifiedTopology: true,
   useNewUrlParser: true
 });
