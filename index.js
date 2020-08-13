@@ -8,6 +8,8 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config({path: 'variables.env'});
 
+const port = process.env.PORT || 4000
+
 const app = express();
 const server = new ApolloServer({
   typeDefs,
@@ -33,6 +35,4 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
+app.listen({ port }, () => console.log(`Servidor Corriento ${server.graphqlPath}`))
