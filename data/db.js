@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 dotenv.config({path: 'variables.env'});
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://cmr:!ed6MFVA_kvUWTz@cluster0.l2r9w.mongodb.net/<dbname>?retryWrites=true&w=majority' , {
+mongoose.connect(process.env.DB , {
   useUnifiedTopology: true,
   useNewUrlParser: true
 });

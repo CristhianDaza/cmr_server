@@ -14,6 +14,21 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  cors: {
+    credentials: true,
+    origin: (origin, callback) => {
+        const whitelist = [
+            "http://5f34a5609f839615f87197fa--tender-borg-b0f490.netlify.app/",
+            "https://5f34a5609f839615f87197fa--tender-borg-b0f490.netlify.app/"
+        ];
+
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error("Not allowed by CORS"))
+        }
+    }
+  },
   context: async({req}) => {
     // obtner token
     const token = req.headers['authorization']
