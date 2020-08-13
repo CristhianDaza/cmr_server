@@ -4,7 +4,10 @@
   "description": "GrapQL Servidor",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "server": "nodemon ./index.js --exec babel-node -e js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm install", 
+    "start": "babel-node ./index.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +38,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-node6": "11.0.0"
   }
 }
