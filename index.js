@@ -18,8 +18,8 @@ const server = new ApolloServer({
     credentials: true,
     origin: (origin, callback) => {
         const whitelist = [
-            "http://5f34a5609f839615f87197fa--tender-borg-b0f490.netlify.app/",
-            "https://5f34a5609f839615f87197fa--tender-borg-b0f490.netlify.app/"
+            "http://tender-borg-b0f490.netlify.app/",
+            "https://tender-borg-b0f490.netlify.app/"
         ];
 
         if (whitelist.indexOf(origin) !== -1) {
